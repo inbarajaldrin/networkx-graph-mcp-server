@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "networkx-graph-mcp-server"
+version = "0.1.0"
+description = "NetworkX Graph MCP Server - State/decision graph creation and management for AI agents"
+readme = "README.md"
+license = {text = "MIT"}
+keywords = ["networkx", "state-graph", "decision-graph", "mcp", "ai", "workflow"]
+authors = [{name = "NetworkX Graph MCP Server Contributors"}]
+requires-python = ">=3.11"
+dependencies = [
+    "networkx>=3.0",
+    "mcp>=1.0.0",
+    "matplotlib>=3.5.0",  # For visualization
+    "pyyaml>=6.0.0",  # For YAML export
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=24.0.0",
+    "ruff>=0.8.0",
+    "mypy>=1.13.0",
+]
+
+[project.scripts]
+networkx-graph-mcp = "networkx_graph.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["networkx_graph*"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = ["--strict-markers", "--strict-config", "--tb=short", "-v"]
+testpaths = ["tests"]
+asyncio_mode = "auto"
