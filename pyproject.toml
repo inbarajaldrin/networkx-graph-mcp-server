@@ -16,6 +16,7 @@ dependencies = [
     "mcp>=1.0.0",
     "matplotlib>=3.5.0",  # For visualization
     "pyyaml>=6.0.0",  # For YAML export
+    "flask>=3.0.0",  # For web visualization
 ]
 
 [project.optional-dependencies]

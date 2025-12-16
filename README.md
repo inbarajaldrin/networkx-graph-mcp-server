@@ -36,3 +36,18 @@ Add to your `mcp_config.json`:
 - Export/Visualize: export_graph (yaml/json), import_graph, visualize_graph (PNG)
 - Analysis: validate_graph (warnings only, cycles allowed), get_graph_stats, find_path
 
+### Web Visualization
+
+Interactive web browser for visualizing graphs:
+
+```bash
+uv run app.py
+```
+
+Then open your browser to: http://localhost:5000
+
+**Features:**
+- Load YAML/JSON graph files via file upload
+- Interactive graph visualization with zoom, pan, and node selection
+- View node details, statistics, and graph structure
+- Color-coded nodes by type (action, decision, verification, loop, success, failure)
